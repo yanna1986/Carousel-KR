@@ -1,11 +1,36 @@
 class Carousel {
-    constructor(){
+
+    constructor(s) { 
+        let _initConfig = (obj) => {
+            const settings = {
+                containerID: '#carousel',
+                interval: 5000,
+                slideID: '.slide'
+            };
+            if(obj!==undefined){
+                settings.containerID = obj.containerID || '#carousel';
+                settings.interval = obj.interval || 5000;
+                settings.slideID = obj.slideID || '.slide';
+            }
+            return settings;
+        };
+
+        let settings = _initConfig(s);
+        console.log(settings);
+
+        
+
+     
+
+
+
+
     this.container = document.querySelector('#carousel');
     this.slides = this.container.querySelectorAll('.slide');
     
     this.timerID = null;
     this.interval = 2000;    
- }
+    }
 
  _initProps() {
     this.slidesCount = this.slides.length ;
@@ -138,11 +163,24 @@ class Carousel {
     }
 }
 //**наследование */
-class SwipeCarosel extends Carousel{
-    _initListeners(){
+class SwipeCarousel extends Carousel {
+    _initListeners() {
         super._initListeners();
-        this.container.addEventListener( '')
-
+        this.container.addEventListener('touchstart', this._swiperStart.bind(this));
+        this.container.addEventListener('touchend', this._swiperEnd.bind(this));
     }
+
+    _swiperStart(e) {
+        this.swipeStartX = e.changedTouches[0].pageX;
+    }
+  
+    _swiperEnd(e) {
+        this.swipeEndX = e.changedTouches[0].pageX;
+        this.swipeStartX - this.swipeEndX > 100 && this.next();
+        this.swipeStartX - this.swipeEndX < -100 && this.prev();
+    }
+
+
+
 
 }
