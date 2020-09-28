@@ -1,9 +1,5 @@
 function Carousel(){
-    this.container =document.querySelector('#carousel');
-    this.slides = this.container.querySelectorAll('.slide');
-    
-    this.interval=2000;
-    this.timerID=null;
+   
     
 
     this._initProps();
@@ -15,21 +11,7 @@ function Carousel(){
 
 
 Carousel.prototype = {
-  _initProps(){
-    this.slidesCount=this.slides.length ;
-    this.currentSlide = 0;
-    this.isPlaying= true;
-    //this.swipeStartX = null;
-    //this.swipeEndX = null;
-
-    this.KEY_SPACE = ' ';
-    this.KEY_LEFT_ARROW = 'ArrowLeft';
-    this.KEY_RIGHT_ARROW = 'ArrowRight';
-    this.FA_PAUSE = '<i class="far fa-pause-circle"></i>';
-    this.FA_PLAY = '<i class="far fa-play-circle"></i>';
-    this.FA_PREV = '<i class="fas fa-angle-left"></i>';
-    this.FA_NEXT = '<i class="fas fa-angle-right"></i>';
-  },
+ 
 
   _initControls(){
     let controls = document.createElement('div');
