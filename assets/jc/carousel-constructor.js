@@ -179,11 +179,6 @@ Carousel.prototype = {
       
     
 
-    init(){
-       this.timerID=setInterval(() => this.gotoNext(), this.interval); 
-    }   
-};
-
 
 
 

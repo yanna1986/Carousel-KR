@@ -1,15 +1,9 @@
-@import "variables";
 @import "skin";
-
+@import "variables";
 @import "mixins-media";
-@import "mixins";
-@import "extends";
 
-@import "bootstrap-theming";
+@import "commons";
+@import "slides";
+@import "controls";
+@import "indicators";
 
-@import "common";
-@import "header";
-@import "main";
-@import "page";
-@import "sidebar";
-@import "footer";

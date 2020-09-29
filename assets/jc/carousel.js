@@ -1,3 +1,8 @@
+
+
+
+
+
 class Carousel {
 
     constructor(s) { 
@@ -41,16 +46,16 @@ class Carousel {
     this.SPACE = ' ';
     this.LEFT_ARROW = 'ArrowLeft';
     this.RIGHT_ARROW = 'ArrowRight';
-    this.FA_PAUSE = '<i class="fas fa-pause"></i>';
-    this.FA_PLAY = '<i class="fas fa-play"></i>';
+    this.FA_PAUSE = '<i class="fas fa-pause-circle"></i>';
+    this.FA_PLAY = '<i class="fas fa-play-circle"></i>';
     this.FA_PREV = '<i class="fas fa-angle-left"></i>';
     this.FA_NEXT = '<i class="fas fa-angle-right"></i>';
   }
   _initControls(){
     let controls = document.createElement('div');
-    const PAUSE = `<button id="pause-btn" class="control">${this.FA_PAUSE}</button>`;
-    const PREV = `<button id="prev-btn" class="control">${this.FA_PREV}</button>`;
-    const NEXT = `<button id="next-btn" class="control">${this.FA_NEXT}</button>`;
+    const PAUSE = `<span id="pause-btn" class="control-pause">${this.FA_PAUSE}</span>`;
+    const PREV = `<span id="prev-btn" class="control-prev">${this.FA_PREV}</span>`;
+    const NEXT = `<span id="next-btn" class="control-next">${this.FA_NEXT}</span>`;
 
     controls.setAttribute('class', 'controls');
     controls.setAttribute('id', 'controls-container');
