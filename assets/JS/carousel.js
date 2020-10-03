@@ -6,7 +6,7 @@ class Carousel {
       const settings = {
         containerID: '#carousel',
         interval: 5000,
-        slideID: '.slide'
+        slideID: '.slide',
       };
 
       if (obj !== undefined) {
