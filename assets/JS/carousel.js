@@ -6,7 +6,7 @@ class Carousel {
       const settings = {
         containerID: '#carousel',
         interval: 5000,
-        slideID: '.slide',
+        slideID: '.slide'
       };
 
       if (obj !== undefined) {
@@ -15,7 +15,7 @@ class Carousel {
         settings.slideID = obj.slideID || '.slide';
       }
       return settings;
-    };
+    }
 
     let settings = _initConfig(s);
     
@@ -69,31 +69,37 @@ class Carousel {
 
       indicator.setAttribute('class', 'indicator');
       i === 0 && indicator.classList.add('active');
-      indicator.dataset.slideTo = '${i}';
+      indicator.dataset.slideTo = `${i}`;  
 
       indicators.appendChild(indicator);
+ 
     }
-    
+    console.log(indicators);
+
 
     this.container.appendChild(indicators);
 
     this.indContainer = this.container.querySelector('#indicators-container');
     this.indItems = this.indContainer.querySelectorAll('.indicator');
   }
+
   _initListeners() {
-    document.addEventListener('keydown', this._pressKey.bind(this));
+    
     this.pauseBtn.addEventListener('click', this.pausePlay.bind(this));
     this.nextBtn.addEventListener('click', this.next.bind(this));
     this.prevBtn.addEventListener('click', this.prev.bind(this));
     this.indContainer.addEventListener('click', this._indicate.bind(this));
+    document.addEventListener('keydown', this._pressKey.bind(this));
+    
   }
 
   _gotoNth(n) {
-    this.slides[this.currentSlide].classList.toggle('active');
+    this.slides [this.currentSlide].classList.toggle('active');
     this.indItems[this.currentSlide].classList.toggle('active');
     this.currentSlide = (this.slidesCount + n) % this.slidesCount;
     this.slides[this.currentSlide].classList.toggle('active');
     this.indItems[this.currentSlide].classList.toggle('active');
+    
   }
 
   _gotoPrev() {
@@ -122,7 +128,7 @@ class Carousel {
 
     if (target.classList.contains('indicator')) {
       this._pause();
-      this._gotoNth(+target.dataset.slideTo);
+      this._gotoNth( + target.dataset.slideTo);
     }
   }
   _pressKey(e) {
