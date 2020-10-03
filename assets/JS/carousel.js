@@ -18,7 +18,7 @@ class Carousel {
     }
 
     let settings = _initConfig(s);
-    
+
 
     this.container = document.querySelector('#carousel');
     this.slides = this.container.querySelectorAll('.slide');
@@ -69,10 +69,10 @@ class Carousel {
 
       indicator.setAttribute('class', 'indicator');
       i === 0 && indicator.classList.add('active');
-      indicator.dataset.slideTo = `${i}`;  
+      indicator.dataset.slideTo = `${i}`;
 
       indicators.appendChild(indicator);
- 
+
     }
     console.log(indicators);
 
@@ -84,22 +84,19 @@ class Carousel {
   }
 
   _initListeners() {
-    
     this.pauseBtn.addEventListener('click', this.pausePlay.bind(this));
     this.nextBtn.addEventListener('click', this.next.bind(this));
     this.prevBtn.addEventListener('click', this.prev.bind(this));
     this.indContainer.addEventListener('click', this._indicate.bind(this));
     document.addEventListener('keydown', this._pressKey.bind(this));
-    
   }
 
   _gotoNth(n) {
-    this.slides [this.currentSlide].classList.toggle('active');
+    this.slides[this.currentSlide].classList.toggle('active');
     this.indItems[this.currentSlide].classList.toggle('active');
     this.currentSlide = (this.slidesCount + n) % this.slidesCount;
     this.slides[this.currentSlide].classList.toggle('active');
     this.indItems[this.currentSlide].classList.toggle('active');
-    
   }
 
   _gotoPrev() {
@@ -128,7 +125,7 @@ class Carousel {
 
     if (target.classList.contains('indicator')) {
       this._pause();
-      this._gotoNth( + target.dataset.slideTo);
+      this._gotoNth(+ target.dataset.slideTo);
     }
   }
   _pressKey(e) {
@@ -167,7 +164,7 @@ class SwipeCarousel extends Carousel {
   _swiperStart(e) {
     this.swipeStartX = e.changedTouches[0].pageX;
   }
-
+  
   _swiperEnd(e) {
     this.swipeEndX = e.changedTouches[0].pageX;
     this.swipeStartX - this.swipeEndX > 100 && this.next();
