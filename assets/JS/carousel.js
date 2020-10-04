@@ -19,7 +19,6 @@ class Carousel {
 
     let settings = _initConfig(s);
 
-
     this.container = document.querySelector('#carousel');
     this.slides = this.container.querySelectorAll('.slide');
 
@@ -75,7 +74,6 @@ class Carousel {
 
     }
     console.log(indicators);
-
 
     this.container.appendChild(indicators);
 
